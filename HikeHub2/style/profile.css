@@ -1,0 +1,515 @@
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f0f9f6;
+  color: #2e4e3f;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #2e8b57;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-left: 1100px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile {
+  background-color: white;
+  color: #2e8b57;
+  padding: 0px 5px;
+  
+  border-radius: 5px;
+  font-weight: bold;
+  display: flex;
+ align-items: center;
+}
+
+.profile-pic{
+  display: flex;
+  align-items: center;
+  
+}
+.profile-pic .sos-button{
+
+  display: flex;
+  
+  padding-right: 20px;
+  color: inherit;
+}
+.prof-svg{
+  padding-top: 5px;
+  padding-left: 10px ;
+  
+}
+main {
+  padding: 30px;
+}
+
+
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 5px;
+  background-color: #ff4d4f;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.logout-btn:hover {
+  background-color: #d9363e;
+}
+.profile-tag{
+  text-decoration: none;
+  color: inherit;
+}
+.profile-tag .name-profile{
+  color:inherit;
+  margin:0;
+  padding:0;
+}
+.profile-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.profile-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-icon {
+  font-size: 2rem;
+  background: #d5f5e3;
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+
+.profile-text h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.since {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.edit-btn {
+  background: #65b891;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.edit-btn:hover {
+  background: #4ba377;
+}
+
+/* Stats Section */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.stat h3 {
+  color: #2e8b57;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.stat p {
+  margin: 0;
+  color: #555;
+}
+
+/* Main Content */
+.main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Recent Hikes */
+.recent-hikes {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.hike-card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.hike-card:last-child {
+  border: none;
+}
+
+.hike-details h4 {
+  margin: 0;
+  color: #333;
+}
+
+.hike-details p, .hike-meta p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.3rem 0;
+}
+
+.view-all {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #2e8b57;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+/* Quick Action */
+.quick-action {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.action-btn {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.plan {
+  background: #65b891;
+  color: #fff;
+}
+.find {
+  background: #d5f5e3;
+  color: #2e8b57;
+}
+.share {
+  background: #f2e5ff;
+  color: #6b21a8;
+}
+
+.action-btn:hover {
+  opacity: 0.9;
+}
+
+/* Achievements */
+.achievements {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.badge {
+  flex: 1;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 12px;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.badge h4 {
+  margin: 0;
+  color: #2e8b57;
+}
+
+.badge p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .achievements {
+    flex-direction: column;
+  }
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 900px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 1.2rem;
+  top: 1rem;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.edit-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.left, .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-pic-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.profile-avatar {
+  background-color: #d5f5e3;
+  border-radius: 50%;
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.upload-btn {
+  background: #fff;
+  border: 1px solid #888;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+input, textarea, select {
+  border: 1px solid #999;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.cancel-btn {
+  border: 1px solid #999;
+  background: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background: #65b891;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #4ba377;
+}
+
+@media (max-width: 768px) {
+  .edit-container {
+    flex-direction: column;
+  }
+}
+.logo-link {
+text-decoration: none;     
+color: inherit;            
+display: flex;            
+align-items: center;
+ gap: 10px;                
+ }
+
+   .logo-link img {
+  height: 40px;             
+   }   
+    header h1{
+    font-size: 22px;
+   }  
+.right-column-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-details-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.profile-details-card h3 {
+  margin-bottom: 1rem;
+}
+
+.profile-details-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-details-card li {
+  font-size: 0.9rem;
+  color: #555;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.75rem 0;
+}
+
+.profile-details-card li:last-child {
+  border-bottom: none;
+}
+
+.profile-details-card li strong {
+  color: #2e4e3f;
+  display: block;
+  margin-bottom: 2px;
+}
+/* Main display picture on profile page */
+.profile-pic-display {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d5f5e3;
+}
+
+/* Preview picture inside the modal */
+.profile-pic-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* Style the "Upload" button (which is a label) */
+.upload-btn {
+  background: #f0f0f0;
+  border: 1px solid #888;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  display: inline-block; /* Make label clickable */
+  transition: background 0.2s;
+}
+.upload-btn:hover {
+  background: #e0e0e0;
+}
+
+/* --- Original .profile-icon style (keep it for other pages if needed) --- */
+.profile-icon {
+  font-size: 2rem;
+  background: #d5f5e3;
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+.header-profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+.prof-svg {
+    padding-top: 5px;
+    padding-left: 10px;
+}

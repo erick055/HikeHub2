@@ -1,0 +1,300 @@
+/* --- Global & Body --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f0f9f6;
+  color: #2e4e3f;
+  line-height: 1.6;
+}
+
+/* --- Header --- */
+header {
+  background-color: #2e8b57;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-left: 1100px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile {
+  background-color: white;
+  color: #2e8b57;
+  padding: 0px 5px;
+  
+  border-radius: 5px;
+  font-weight: bold;
+  display: flex;
+ align-items: center;
+}
+
+.profile-pic{
+  display: flex;
+  align-items: center;
+  
+}
+.profile-pic .sos-button{
+
+  display: flex;
+  
+  padding-right: 20px;
+  color: inherit;
+}
+.prof-svg{
+  padding-top: 5px;
+  padding-left: 10px ;
+  
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 5px;
+  background-color: #ff4d4f;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.logout-btn:hover {
+  background-color: #d9363e;
+}
+.profile-tag{
+  text-decoration: none;
+  color: inherit;
+}
+.profile-tag .name-profile{
+  color:inherit;
+  margin:0;
+  padding:0;
+}
+
+
+/* --- Main Details Container --- */
+.details-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.left-column {
+  flex: 2; /* Takes 2/3 of the space */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 400px;
+}
+
+.right-column {
+  flex: 1; /* Takes 1/3 of the space */
+  min-width: 300px;
+  display: none; /* *** MODIFICATION HERE: Hide by default *** */
+}
+
+/* --- Card Styles --- */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #d4e0db;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+.card .icon {
+  font-size: 1.5rem;
+}
+
+/* --- Trail Info Card --- */
+.trail-info-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.trail-info-card h2 {
+  font-size: 1.75rem;
+  color: #2e8b57;
+}
+.trail-info-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+.trail-info-card .stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+.difficulty-tag {
+  background: #fff1c6;
+  color: #a67c00;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* --- Date/Time Card --- */
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* --- Group Size Card --- */
+.group-size-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 8px;
+}
+.stepper-btn {
+  font-size: 2rem;
+  font-weight: 300;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.group-size-number {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.group-size-label {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* --- Book Now Button --- */
+.book-now-btn {
+  background: #2e8b57;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+.book-now-btn:hover {
+  background: #256d44;
+}
+
+/* --- Organization Card --- */
+.right-column .sub-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+.org-card {
+  border: 1px solid #eee;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.org-card h4 {
+  font-size: 1.1rem;
+  color: #2e8b57;
+}
+.org-card p {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+.org-card span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+.org-card a {
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: none;
+}
+.logo-link {
+text-decoration: none;     
+color: inherit;            
+display: flex;            
+align-items: center;
+ gap: 10px;                
+ }
+
+   .logo-link img {
+  height: 40px;             
+   }   
+   header h1{
+    font-size: 22px;
+   }
+   .header-profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+.prof-svg {
+    padding-top: 5px;
+    padding-left: 10px;
+}

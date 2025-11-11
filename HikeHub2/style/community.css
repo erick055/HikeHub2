@@ -1,0 +1,394 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f0f9f6;
+  color: #2e4e3f;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #2e8b57;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-left: 1100px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile {
+  background-color: white;
+  color: #2e8b57;
+  padding: 0px 5px;
+  
+  border-radius: 5px;
+  font-weight: bold;
+  display: flex;
+ align-items: center;
+}
+
+.profile-pic{
+  display: flex;
+  align-items: center;
+  
+}
+.profile-pic .sos-button{
+
+  display: flex;
+  
+  padding-right: 20px;
+  color: inherit;
+}
+.prof-svg{
+  padding-top: 5px;
+  padding-left: 10px ;
+  
+}
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 5px;
+  background-color: #ff4d4f;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.logout-btn:hover {
+  background-color: #d9363e;
+}
+.profile-tag{
+  text-decoration: none;
+  color: inherit;
+}
+.profile-tag .name-profile{
+  color:inherit;
+  margin:0;
+  padding:0;
+}
+/* Main Community Container */
+.community-hub-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.community-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2e4e3f;
+    margin: 0;
+}
+
+.community-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Tabs */
+.hub-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px; /* Aligns with bottom border */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab-link.active {
+    color: #2e8b57;
+    border-bottom-color: #2e8b57;
+}
+
+/* Share Button */
+.share-experience-btn {
+    width: 100%;
+    background-color: #2e8b57;
+    color: white;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+.share-experience-btn:hover {
+    background-color: #256d44;
+}
+
+/* Review Feed */
+.review-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-initials {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #d5f5e3;
+    color: #2e8b57;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    display: block;
+    color: #333;
+}
+
+.trail-name {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.review-meta {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.review-stars {
+    color: #f39c12;
+    font-size: 1.1rem;
+}
+
+.time-ago {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.review-text {
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.review-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.review-actions {
+    display: flex;
+    gap: 15px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.action-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="file"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.modal-stars {
+    font-size: 2rem;
+    color: #ccc;
+}
+
+.modal-stars span {
+    cursor: pointer;
+    padding: 0 2px;
+}
+
+.modal-stars span.filled,
+.modal-stars span:hover,
+.modal-stars span:hover ~ span {
+    color: #f39c12;
+}
+
+/* Keep stars dim after the one hovered/clicked */
+.modal-stars:hover span.filled ~ span {
+    color: #ccc; 
+}
+.modal-stars span.filled:hover ~ span {
+   color: #ccc; 
+}
+
+
+.submit-review-btn {
+    width: 100%;
+    background-color: #2e8b57;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submit-review-btn:disabled {
+    background-color: #999;
+}
+
+.form-message {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+.form-message.success {
+    color: green;
+}
+.form-message.error {
+    color: red;
+}
+.logo-link {
+text-decoration: none;     
+color: inherit;            
+display: flex;            
+align-items: center;
+ gap: 10px;                
+ }
+
+   .logo-link img {
+  height: 40px;             
+   }   
+    header h1{
+    font-size: 22px;
+   }  
+   .header-profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+.prof-svg {
+    padding-top: 5px;
+    padding-left: 10px;
+}
