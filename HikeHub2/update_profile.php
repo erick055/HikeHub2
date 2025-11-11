@@ -1,7 +1,10 @@
 <?php
+ob_clean();
+error_reporting(0);
+ini_set('display_errors', 0);
+header('Content-Type: application/json');
 session_start();
 require_once 'config.php';
-header('Content-Type: application/json');
 
 // 1. Check if user is logged in
 if (!isset($_SESSION['email'])) {
@@ -15,43 +18,64 @@ $new_image_path = null;
 $old_image_path = null;
 
 // --- 2. HANDLE FILE UPLOAD ---
-if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] == 0) {
+if (isset($_FILES['profile_picture'])) {
     
-    $target_dir = "uploads/profiles/"; // The folder we made in Step 0
-    
-    $file_ext = strtolower(pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION));
-    $new_image_path = $target_dir . "user_" . $user_id . "_" . uniqid() . '.' . $file_ext;
-    
-    // Validate file
-    $allowed_exts = ['jpg', 'jpeg', 'png', 'gif'];
-    $check = getimagesize($_FILES['profile_picture']['tmp_name']);
-
-    if ($check !== false && in_array($file_ext, $allowed_exts)) {
-        // --- Before saving new pic, get old pic path to delete it ---
-        $stmt_old = $conn->prepare("SELECT profile_picture FROM users WHERE email = ?");
-        $stmt_old->bind_param("s", $email);
-        $stmt_old->execute();
-        $result_old = $stmt_old->get_result();
-        if ($result_old->num_rows === 1) {
-            $old_image_path = $result_old->fetch_assoc()['profile_picture'];
-        }
-        $stmt_old->close();
-
-        // Move the new file
-        if (!move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_image_path)) {
-            echo json_encode(['status' => 'error', 'message' => 'Failed to upload image.']);
-            exit();
-        }
-        
-        // --- Delete old picture if it exists and is not the default ---
-        if ($old_image_path && file_exists($old_image_path)) {
-            unlink($old_image_path);
-        }
-
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Invalid file type. Only JPG, JPEG, PNG, GIF allowed.']);
+    // --- MODIFIED: Check for upload errors first ---
+    if ($_FILES['profile_picture']['error'] == UPLOAD_ERR_INI_SIZE || $_FILES['profile_picture']['error'] == UPLOAD_ERR_FORM_SIZE) {
+        echo json_encode(['status' => 'error', 'message' => 'Error: The uploaded file is too large.']);
         exit();
     }
+    
+    // Only proceed if upload was successful (OK)
+    if ($_FILES['profile_picture']['error'] == UPLOAD_ERR_OK) { 
+    
+        $target_dir = "uploads/profiles/"; // The folder we made in Step 0
+        
+        // --- ADDED: Create directory if it doesn't exist (from add_review.php) ---
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+        // --- END OF ADDED BLOCK ---
+
+        $file_ext = strtolower(pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION));
+        $new_image_path = $target_dir . "user_" . $user_id . "_" . uniqid() . '.' . $file_ext;
+        
+        // Validate file
+        $allowed_exts = ['jpg', 'jpeg', 'png', 'gif'];
+        $check = getimagesize($_FILES['profile_picture']['tmp_name']);
+
+        if ($check !== false && in_array($file_ext, $allowed_exts)) {
+            // --- Before saving new pic, get old pic path to delete it ---
+            $stmt_old = $conn->prepare("SELECT profile_picture FROM users WHERE email = ?");
+            $stmt_old->bind_param("s", $email);
+            $stmt_old->execute();
+            $result_old = $stmt_old->get_result();
+            if ($result_old->num_rows === 1) {
+                $old_image_path = $result_old->fetch_assoc()['profile_picture'];
+            }
+            $stmt_old->close();
+
+            // Move the new file
+            if (!move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_image_path)) {
+                echo json_encode(['status' => 'error', 'message' => 'Failed to move uploaded image. Check folder permissions.']);
+                exit();
+            }
+            
+            // --- Delete old picture if it exists and is not the default ---
+            if ($old_image_path && file_exists($old_image_path)) {
+                unlink($old_image_path);
+            }
+
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Invalid file type. Only JPG, JPEG, PNG, GIF allowed.']);
+            exit();
+        }
+    } elseif ($_FILES['profile_picture']['error'] != UPLOAD_ERR_NO_FILE) {
+        // Handle other potential errors
+        echo json_encode(['status' => 'error', 'message' => 'An unknown error occurred during upload. Error code: ' . $_FILES['profile_picture']['error']]);
+        exit();
+    }
+    // If error is UPLOAD_ERR_NO_FILE, we just do nothing and the script continues
 }
 
 // --- 3. GET TEXT DATA ---
