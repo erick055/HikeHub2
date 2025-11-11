@@ -32,13 +32,13 @@ if ($result->num_rows === 1) {
     $best_hiking_time = $user['best_hiking_time'] ?: "Not set";
     $companion_preference = $user['companion_preference'] ?: "Not set";
     
-    // --- ADDED: Get profile pic path, use default if NULL ---
+    // --- MODIFIED: Get profile pic path, use default if NULL ---
     $profile_picture_path = $user['profile_picture'] ?: 'img/default-avatar.png';
 
     // Ensure session variables are up to date
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['name'] = $user['name'];
-    $_SESSION['profile_picture'] = $user['profile_picture']; // <-- ADDED
+    $_SESSION['profile_picture'] = $user['profile_picture']; 
 
 } else {
     // Fallback if user not found
@@ -97,7 +97,7 @@ $conn->close();
         
         <a href="profile.php" class="header-profile-pic-container">
             <?php if ($loggedIn && isset($_SESSION['profile_picture']) && $_SESSION['profile_picture']): ?>
-                <img src="<?php echo htmlspecialchars($_SESSION['profile_picture']); ?>" alt="Profile" class="header-profile-pic">
+                <img src="<?php echo htmlspecialchars($_SESSION['profile_picture']); ?>" alt="Profile" class="header-profile-pic" id="headerProfilePic">
             <?php else: ?>
                 <div class="prof-svg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -123,7 +123,7 @@ $conn->close();
   <section class="profile-section">
     <div class="profile-card">
       <div class="profile-info">
-        <div class="profile-icon">👤</div>
+        <img src="<?php echo htmlspecialchars($profile_picture_path); ?>" alt="Profile" class="profile-pic-display" id="mainProfilePic">
         <div class="profile-text">
           <h2 id="displayName"><?php echo htmlspecialchars($username); ?></h2>
           <p id="displayBio"><?php echo htmlspecialchars($bio); ?></p>
@@ -250,6 +250,7 @@ $conn->close();
       <p>Shared 5 helpful guides</p>
     </div>
   </section>
+
   <div id="editProfileModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" id="closeModal">&times;</span>
@@ -258,8 +259,9 @@ $conn->close();
       <div class="edit-container">
         <div class="left">
           <div class="profile-pic-section">
-            <div class="profile-avatar">👤</div>
-            <button class="upload-btn">📤 Upload New Photo</button>
+            <img src="<?php echo htmlspecialchars($profile_picture_path); ?>" alt="Profile Preview" class="profile-pic-preview" id="profilePicPreview">
+            <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+            <label for="profilePicInput" class="upload-btn">📤 Upload New Photo</label>
           </div>
 
           <label>Full Name</label>
