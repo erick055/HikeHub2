@@ -95,7 +95,7 @@ $exploreLink = $loggedIn ? 'explore.php' : 'aboutus.php';
                         <h4>Cavite Provincial Tourism Office</h4>
                         <p class="description">Official tourism promotion and trail certification</p>
                         <div class="card-contact">
-                            <a href="#" class="contact-link link-website">Visit Website</a>
+                            <a href="https://cavite.gov.ph/home/" class="contact-link link-website" target="_blank" rel="noopener noreferrer">Visit Website</a>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,8 @@ $exploreLink = $loggedIn ? 'explore.php' : 'aboutus.php';
                         <h4>Department of Environment and Natural Resources</h4>
                         <p class="description">Environmental protection and sustainable hiking practices</p>
                         <div class="card-contact">
-                            <a href="#" class="contact-link link-website">Visit Website</a>
+                            <a href="https://calabarzon.denr.gov.ph/" class="contact-link link-website" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                           
                         </div>
                     </div>
                 </div>
