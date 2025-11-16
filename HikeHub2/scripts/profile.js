@@ -121,41 +121,13 @@ saveBtn.onclick = () => {
   .then(response => response.json()) // Expect a JSON response
   .then(data => {
     if (data.status === 'success') {
-      // 3. Update the page text with the new data
-      displayName.textContent = data.newName;
-      displayBio.textContent = data.newBio || "No bio yet. Click 'Edit Profile' to add one!";
-      displayLocation.textContent = data.newLocation || "Not set";
-      displayExperience.textContent = data.newExperience || "Not set";
-      displayPhone.textContent = data.newPhone || "Not set";
-      displayEmergency.textContent = data.newEmergency || "Not set";
-      displayTrailType.textContent = data.newTrailType || "Not set";
-      displayHikeTime.textContent = data.newHikeTime || "Not set";
-      displayCompanion.textContent = data.newCompanion || "Not set";
-
-      // *** NEW: Update profile pictures on the page ***
-      const newPicPath = data.newProfilePicPath || 'img/default-avatar.png';
-      if (mainProfilePic) {
-          mainProfilePic.src = newPicPath;
-      }
-      if (headerProfilePic) {
-          headerProfilePic.src = newPicPath;
-      }
-      // Update preview src for next time modal opens
-      profilePicPreview.src = newPicPath;
-
-
-      // 4. Also update the header name
-      const headerProfileName = document.querySelector('.name-profile');
-      if (headerProfileName) {
-          headerProfileName.textContent = data.newName;
-      }
-
-      // 5. Close the modal
-      closeModalWindow();
-    } else {
-      // Show an error message from the server
-      alert(data.message || 'An error occurred.');
-    }
+    // The simplest and most reliable way to show all changes
+    // is to just reload the page.
+    location.reload();
+} else {
+    // Show an error message from the server
+    alert(data.message || 'An error occurred.');
+}
   })
   .catch(error => {
     console.error('Error:', error);
