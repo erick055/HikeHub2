@@ -407,4 +407,7 @@ header a {
     padding-top: 5px;
     padding-left: 10px;
 }
+.profile-pic .sos-button{
+  padding-right: 20px;
+}
   </style>

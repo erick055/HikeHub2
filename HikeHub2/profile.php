@@ -232,24 +232,7 @@ $conn->close();
     </div>
   </section>
 
-  <section class="achievements">
-    <div class="badge">
-      <h4>🏔️ First Summit</h4>
-      <p>Completed your first trail</p>
-    </div>
-    <div class="badge">
-      <h4>🧭 Explorer</h4>
-      <p>Visited 20 different trails</p>
-    </div>
-    <div class="badge">
-      <h4>💪 Endurance Hiker</h4>
-      <p>Hiked for more than 50km total</p>
-    </div>
-    <div class="badge">
-      <h4>🤝 Community Helper</h4>
-      <p>Shared 5 helpful guides</p>
-    </div>
-  </section>
+  
 
   <div id="editProfileModal" class="modal">
     <div class="modal-content">
